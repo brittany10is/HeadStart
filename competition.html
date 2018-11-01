@@ -1,3 +1,40 @@
+<head>
+	<title>HeadStart Competitions</title>
+  <!-- Dropdown menu -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="style.css"/>
+  <div class="dropdown" style="float:left;">
+  <button onclick="myFunction()" class="dropbtn">^</button>
+    <div id="myDropdown" class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="#achievements">Achievements</a>
+      <a href="competition.html">Competitions</a>
+  		<a href="#statistics">Statistics</a>
+  		<a href="#logout">Log Out</a>
+    </div>
+  </div>
+  <script>
+  // When button is clicked,toggle between hiding/showing the dropdown content */
+  function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+  }
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>
+  <!-- Dropdown menu end-->
+<head/>
 
 <style>
 
