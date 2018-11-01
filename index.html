@@ -5,47 +5,14 @@
 	<meta charset="utf-8">
 	<title>HeadStart Home Screen</title>
 
+
 <!-- HAMBURGER menu -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-	.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-	.dropbtn:hover, .dropbtn:focus {
-	    background-color: #2980B9;
-	}
-	.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-	</style>
-
+	<link rel="stylesheet" href="style.css"/>
 <!-- HAMBURGER menu end -->
-<div class="dropdown">
+
+
+<div class="dropdown" style="float:left;">
 <button onclick="myFunction()" class="dropbtn">^</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="#home">Home</a>
@@ -82,15 +49,19 @@ window.onclick = function(event) {
 
 <body>
 	<!-- this is a comment in HTML -->
-	<h1>Amy</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
+	<div style="float:left;">
+	<p><!-- h1 through h5 are headers. The higher the number, the smaller the header -->
 
 
-<!-- HAMBURGER menu -->
-	<div></div>
-	<div></div>
-	<div></div>
-<!-- HAMBURGER menu end -->
-
+<!-- HAMBURGER menu
+<div></div>
+<div></div>
+<div></div>
+HAMBURGER menu end -->
+Amy
+</p>
+</div>
+<div style="clear:left">
 	<h4> HELLO WORLD </h4>
 	<!-- p means paragraph -->
 	<p>Philip Guo is an assistant professor of cognitive science at UC San Diego (Go Tritons!). His research spans human-computer interaction, online learning, and computing education.</p>
@@ -102,5 +73,6 @@ window.onclick = function(event) {
 		<li>Prototyping</li>
 		<li>...</li>
 	</ol>
+</div>
 </body>
 </html>
