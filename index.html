@@ -51,22 +51,61 @@ window.onclick = function(event) {
 	<!-- this is a comment in HTML -->
 	<div style="float:left; margin-left: 95px;" >
 	<p><font size="7"><justify> Amy </font></p>
-
 </div>
+
+
+
 <div style="clear:left">
 	<br>
+	<style>
+	h3{
+	margin-block-start: .5em;
+	margin-block-end: .5em;
+	}
 
+	/* The alert message box */
+	.alert {
+	    padding: 20px;
+	    background-color: #f44336; /* Red */
+	    color: white;
+	    margin-bottom: 15px;
+	}
 
+	/* The close button */
+	.closebtn {
+	    margin-left: 15px;
+	    font-weight: bold;
+	    font-size: 22px;
+	    line-height: 20px;
+	    cursor: pointer;
+	    transition: 0.3s;
+	}
+
+	/* When moving the mouse over the close button */
+	.closebtn:hover {
+	    color: black;
+	}
+</style>
 	<h3> Today's Distance </h3>
+
+	<!-- rectangle1 -->
 	<svg width="400" height="60">
 	  <rect x="30" y="0" width="300" height="50"
 		style="fill:white;stroke:black;stroke-width:2;" />
+			<!-- inner rectangle1 -->
+		<rect x="30" y="0" width="100" height="50"
+		style="fill:red;stroke:black;stroke-width:2;" />
 	</svg>
 
+
 	<h3> Today's Time </h3>
+		<!-- rectangle2 -->
 	<svg width="400" height="60">
 	  <rect x="30" y="0" width="300" height="50"
 		style="fill:white;stroke:black;stroke-width:2;" />
+		<!-- inner rectangle2 -->
+		<rect x="30" y="0" width="50" height="50"
+	 style="fill:blue;stroke:black;stroke-width:2;" />
 	</svg>
 
 	<h3><center>____ calories burned <center/></h3>
@@ -75,7 +114,37 @@ window.onclick = function(event) {
 	<br>
 	<h3>Add to Today's Totals:</h3>
 
-	</ol>
+<center>
+	<table style="width:60%; border-style:solid; border-color:black; border-width:1.3px">
+  <tr>
+    <td style="float: left; font-size: 25px ">Distance</td>
+		<td style="float: left; font-size: 15px; margin-top: 9px ">(miles)</td>
+		<td style="float: right; font-size: 25px; margin-right: 20px">2.2</td>
+		</tr>
+		<tr>
+		<td style="float: left; font-size: 25px">Time</td>
+		<td style="float: left; font-size: 15px; margin-top: 9px ">(min.)</td>
+		<td style="float: right; font-size: 25px; margin-right: 20px">40</td>
+  </tr>
+</table>
+</center>
 </div>
+
+
+<center>
+<div>
+	<button id="alert" class="closebtn" style="width:40%; height:35px; border-style:solid;
+	border-color:black; border-width:1.3px; margin-top: 20px; font-size: 20px">
+		Submit
+	</button>
+</div>
+</center>
 </body>
+
+<script>
+	document.getElementById("alert").onclick = function(){
+		alert("Yay! Your run was added!");
+	}
+</script>
+
 </html>
