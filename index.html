@@ -9,14 +9,19 @@
 <!-- Dropdown menu -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css"/>
-<div class="dropdown" style="float:left;">
-<button onclick="myFunction()" class="dropbtn">^</button>
+<div class="dropdown" style="float:left;" >
+	<!--<img src="HamburgerMenu.png" width="100" height="50"> -->
+<!--<button onclick="myFunction()" class="dropbtn" >..
+</button> -->
+<button href="HamburgerMenu.png">
+  <img class="dropbtn" onclick="myFunction()" src="HamburgerMenu.png" alt="Paris" style="width:50px">
+</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="index.html">Home</a>
     <a href="achievements.html">Achievements</a>
     <a href="competition.html">Competitions</a>
 		<a href="statistics.html">Statistics</a>
-		<a href="#logout">Log Out</a>
+		<a onclick="deleteEverything()" href="loginScreen.html">Log Out</a>
   </div>
 </div>
 <script>
@@ -47,10 +52,10 @@ window.onclick = function(event) {
 </style>
 </head>
 
+<!--/////////////////////////////////////////////////// User's NAME /////////////////////////////////////////////-->
 <body>
-	<!-- this is a comment in HTML -->
-	<div style="float:left; margin-left: 95px;" >
-	<p><font size="7"><justify> Amy </font></p>
+	<div style="float:left; margin-left: 70px;" >
+	<p><font size="6" id="myName"> Name </font></p>
 </div>
 
 
@@ -86,17 +91,24 @@ window.onclick = function(event) {
 	    color: black;
 	}
 </style>
+
+
+<!--/////////////////////////////////////////////////// Rectangle Displays /////////////////////////////////////////////-->
 	<h3> Today's Distance </h3>
 
 	<!-- rectangle1 -->
 	<svg width="400" height="60">
 	  <rect x="30" y="0" width="300" height="50"
-		style="fill:white;stroke:black;stroke-width:2;" />
+		style="fill:white;stroke:black;stroke-width:2" />
 			<!-- inner rectangle1 -->
-		<rect x="30" y="0" width="100" height="50"
+		<rect id="distanceRect" x="30" y="0" width="0" height="50"
 		style="fill:red;stroke:black;stroke-width:2;" />
 	</svg>
-
+	<center>
+	<p> <span style="margin-top: 0px"> ( </span>
+			<span> out of 5 miles)</span>
+		</p>
+	</center>
 
 	<h3> Today's Time </h3>
 		<!-- rectangle2 -->
@@ -104,47 +116,160 @@ window.onclick = function(event) {
 	  <rect x="30" y="0" width="300" height="50"
 		style="fill:white;stroke:black;stroke-width:2;" />
 		<!-- inner rectangle2 -->
-		<rect x="30" y="0" width="50" height="50"
+		<rect id="timeRect" x="30" y="0" width="0" height="50"
 	 style="fill:blue;stroke:black;stroke-width:2;" />
 	</svg>
-
-	<h3><center>____ calories burned <center/></h3>
-	<h3><center> ____ average speed <center/></h3>
+	<center>
+	<p style="margin-top: 0px"> (____ out of 5 hours)</p>
+	</center>
 
 	<br>
-	<h3>Add to Today's Totals:</h3>
+
+	<!--///////////////////////////////////////////Editing Distance & Time Box///////////////////////////////////////////////////////-->
+	<h3>Edit Today's Totals:</h3>
 
 <center>
-	<table style="width:60%; border-style:solid; border-color:black; border-width:1.3px">
+	<table style="width:65%; border-style:solid; border-color:black; border-width:1.3px">
   <tr>
-    <td style="float: left; font-size: 25px ">Distance</td>
-		<td style="float: left; font-size: 15px; margin-top: 9px ">(miles)</td>
-		<td style="float: right; font-size: 25px; margin-right: 20px">2.2</td>
+    <td style="width: 40%; float: left; font-size: 25px ">Distance</td>
+		<td style="width: 20%; float: left; font-size: 15px; margin-top: 9px ">(miles)</td>
+		<td style="width: 20%; float: right; font-size: 25px; margin-right: 20px">
+								<input id="distance" placeholder="0.0" style="margin-top: 5px; float: right; width:80%; border-style:solid; "></input></td>
 		</tr>
 		<tr>
 		<td style="float: left; font-size: 25px">Time</td>
 		<td style="float: left; font-size: 15px; margin-top: 9px ">(min.)</td>
-		<td style="float: right; font-size: 25px; margin-right: 20px">40</td>
+		<td style="width: 20%; float: right; font-size: 25px; margin-right: 20px">
+								<input id="time" placeholder="0.0" style="margin-top: 5px; float: right; width:80%; border-style:solid; "></input></td>
   </tr>
 </table>
 </center>
 </div>
 
 
+<!--//////////////////////////////////////////////DELETE & ADD BUTTONS////////////////////////////////////////////////////////////-->
 <center>
 <div>
-	<button id="alert" class="closebtn" style="width:40%; height:35px; border-style:solid;
+	<button id="alert" onclick="deleteDistance(); deleteTime(); setDistanceBar(); setTimeBar()" style="width:40%; height:35px; border-style:solid;
 	border-color:black; border-width:1.3px; margin-top: 20px; font-size: 20px">
-		Submit
+		Delete
+	</button>
+	<button id="alert" onclick="addDistance(); setDistanceBar(); addTime(); setTimeBar()" style="width:40%; height:35px; border-style:solid;
+	border-color:black; border-width:1.3px; margin-top: 20px; font-size: 20px">
+		Add
 	</button>
 </div>
 </center>
+
+
+<!--//////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////-->
+<script>
+//////////////////// functions to modify distance ////////////////////////
+function addDistance(){
+	// takes integer and adds to pre-existing number if not zero
+	var distanceData = document.getElementById("distance").value;
+	intDistance = Number(distanceData);
+	if (intDistance != 0) {
+		if (localStorage.getItem("distanceData") != null )
+		{
+			intDiscover = localStorage.getItem("distanceData");
+			if ((Number(intDiscover) + Number(intDistance)) <= 300)
+			{
+				localStorage.setItem("discoverOldInt", intDiscover);
+				localStorage.setItem("distanceData", Number(intDiscover) + Number(intDistance));
+			}
+		else
+			{
+			alert("Distance entered is too big");
+			}
+		}
+		else {
+			localStorage.setItem("discoverOldInt", intDistance);
+			localStorage.setItem("distanceData", intDistance);
+		}
+	}
+}
+function deleteDistance(){
+	// takes integer and adds to pre-existing number if not zero
+	var distanceData = document.getElementById("distance").value;
+	intDistance = Number(distanceData);
+	if (intDistance != 0) {
+		intDiscover = localStorage.getItem("distanceData");
+		if ((Number(intDiscover) - Number(intDistance)) >= 0)
+		{
+			localStorage.setItem("discoverOldInt", intDiscover);
+			localStorage.setItem("distanceData", Number(intDiscover) - Number(intDistance));
+		}
+		else {
+			alert("You can't run negative distance silly!")
+		}
+	}
+}
+function setDistanceBar(){
+	document.getElementById("distanceRect").style.width = localStorage.getItem("distanceData");
+}
+
+/////////////functions to save time////////////////
+function addTime(){
+	// takes integer and adds to pre-existing number if not zero
+	var timeData = document.getElementById("time").value;
+	intTime = Number(timeData);
+	if (intTime != 0) {
+		if (localStorage.getItem("timeData") != null)
+		{
+			intDiscoverTime = localStorage.getItem("timeData");
+			if ((Number(intDiscoverTime) + Number(intTime)) <= 300)
+			{
+			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
+			localStorage.setItem("timeData", Number(intDiscoverTime) + Number(intTime));
+			}
+			else
+				{
+					alert("Time entered is too big");
+				}
+		}
+		else {
+			localStorage.setItem("discoverOldTimeInt", intTime);
+			localStorage.setItem("timeData", intTime);
+		}
+	}
+}
+function deleteTime(){
+	// takes integer and adds to pre-existing number if not zero
+	var timeData = document.getElementById("time").value;
+	intTime = Number(timeData);
+	if (intTime != 0) {
+		intDiscoverTime = localStorage.getItem("timeData");
+		if (Number(intDiscoverTime) - Number(intTime) >= 0)
+		{
+			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
+			localStorage.setItem("timeData", Number(intDiscoverTime) - Number(intTime));
+		}
+		else {
+			alert("You can't have negative time silly!")
+		}
+	}
+}
+function setDistanceBar(){
+	document.getElementById("distanceRect").style.width = localStorage.getItem("distanceData");
+}
+function setTimeBar(){
+	document.getElementById("timeRect").style.width = localStorage.getItem("timeData");
+}
+/////////////////////////////////////////////////Resets Data////////////////////////////////////////////
+function deleteEverything(){
+	localStorage.setItem("timeData", 0);
+	localStorage.setItem("discoverOldTimeInt", 0);
+	localStorage.setItem("distanceData", 0);
+	localStorage.setItem("discoverOldInt", 0);
+	alert("Everything deleted");
+}
+/////////////////////////////////////////////////////Set Name////////////////////////////////////////////////
+document.getElementById("myName").innerHTML = localStorage.name;
+
+
+</script>
 </body>
 
-<script>
-	document.getElementById("alert").onclick = function(){
-		alert("Yay! Your run was added!");
-	}
-</script>
 
 </html>

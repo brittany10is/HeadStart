@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <br>
+  <button onclick="location.href='loginScreen.html'">
+    Back
+  </button>
+  <br>
+  <br>
+<center>
+	<h2>Sign Up</h2>
+
+  <form action="/info">
+    <input id="firstName" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="First Name*" required> </br>
+    <input id="lastName" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Last Name*" required> </br>
+
+    </br>
+    <input id="email" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Email*" required> </br>
+
+    </br>
+    <input id="age" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Age" required> </br>
+    <input id="weight" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Weight" required> </br>
+    <input id="height" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Height" required> </br>
+    </br>
+    <input id="password" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Password*" required> </br>
+    <input id="password2" style="margin-top: 5px; margin-top: 5px; width:40%; border-style:solid;"
+                  type="text" placeholder="Password Confirmation*" required> </br>
+
+    <br>
+    <button style="margin-top: 5px; margin-top: 5px; width:30%; border-style:solid;"
+                  onclick="location.href='index.html'; setName(); checkPassword(); checkAllInputs()" type="button">Creat Account</button>
+</center>
+
+
+<script>
+/////////////////////////////////////////// functions ////////////////////////////////////////////
+function setName(){
+  var name = document.getElementById("firstName").value;
+  localStorage.setItem("name", name);
+}
+function checkPassword(){
+  var password1 = document.getElementById("password").value;
+  var password2 = document.getElementById("password2").value;
+  if(password1 != password2)
+  {
+    alert("Password is invaled");
+    window.location = 'signUpScreen.html';
+  }
+}
+function checkAllInputs(){
+  if(document.getElementById("firstName").value.length >= 1 && document.getElementById("lastName").value.length >= 1
+      && document.getElementById("email").value.length >= 1)
+    {
+    }
+  else {
+    {
+      alert("Please fill out all fields marked with *");
+      window.location = 'signUpScreen.html';
+    }
+  }
+}
+
+
+</script>
+
+
+</body>
+</html>
