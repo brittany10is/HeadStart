@@ -186,7 +186,6 @@ function addDistance(){
 
 
 				var distance = window.localStorage['distanceData'];
-
 				document.getElementById('distance-display').innerText = distance/100
 			}
 		else
@@ -211,6 +210,13 @@ function deleteDistance(){
 		{
 			localStorage.setItem("discoverOldInt", intDiscover);
 			localStorage.setItem("distanceData", Number(intDiscover) - Number(intDistance)*100);
+     
+     		document.getElementById('distance-display').innerText = distance/100
+
+
+
+				var distance = window.localStorage['distanceData'];
+				document.getElementById('distance-display').innerText = distance/100
 		}
 		else {
 			alert("You can't run negative distance silly!")
@@ -264,6 +270,10 @@ function deleteTime(){
 		{
 			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
 			localStorage.setItem("timeData", Number(intDiscoverTime) - Number(intTime));
+
+			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
+			localStorage.setItem("timeData", Number(intDiscoverTime) + Number(intTime));
+			
 		}
 		else {
 			alert("You can't have negative time silly!")
