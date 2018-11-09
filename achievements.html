@@ -12,7 +12,7 @@
       <a href="achievements.html">Achievements</a>
       <a href="competition.html">Competitions</a>
   		<a href="statistics.html">Statistics</a>
-  		<a onclick="deleteEverything()" href="loginScreen.html">Log Out</a>
+  		<a onclick="deleteEverything()" href="index.html">Log Out</a>
     </div>
   </div>
   <script>
@@ -35,6 +35,13 @@
     }
   }
 
+function deleteEverything(){
+  localStorage.setItem("timeData", 0);
+  localStorage.setItem("discoverOldTimeInt", 0);
+  localStorage.setItem("distanceData", 0);
+  localStorage.setItem("discoverOldInt", 0);
+  alert("Everything deleted");
+}
   </script>
   <!-- Dropdown menu end-->
 <head/>
