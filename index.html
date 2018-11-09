@@ -27,7 +27,7 @@
 
     <br>
     <button style="margin-top: 5px; width:30%; border-style:solid;"
-                  onclick="location.href='index.html'; setName(); checkInputs()" type="button">Submit</button>
+                  onclick="location.href='home.html'; setName(); checkInputs()" type="button">Submit</button>
 
 <style>
 a {
@@ -49,30 +49,35 @@ function setName(){
   var name = document.getElementById("firstName").value;
   localStorage.setItem("name", name);
 }
+
 function sendEmail(){
   alert("Email Sent");
 }
+
 function checkInputs(){
   if(document.getElementById("firstName").value.length >= 1)
     {
+      window.location = 'home.html';
     }
   else{
     alert("Please input name");
-    window.location = 'loginScreen.html';
+    window.location = 'index.html';
     }
   if(document.getElementById("email").value.length >= 1)
   {
+      window.location = 'home.html';
   }
   else{
     alert("Please input email");
-    window.location = 'loginScreen.html';
+    window.location = 'index.html';
   }
   if(document.getElementById("password").value.length >= 1)
   {
+          window.location = 'home.html';
   }
   else{
     alert("Please input password");
-    window.location = 'loginScreen.html';
+    window.location = 'index.html';
   }
 }
 </script>
