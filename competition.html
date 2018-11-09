@@ -65,14 +65,15 @@ li{
   <li><img class="image" src="https://bit.ly/fcc-relaxing-cat"> Kristen - 15 miles - Candy Bar</li> </br>
 </ul>
 
-<p>Challenge a friend</p>
+<p >Challenge a friend</p>
 
-<form action="/submit-cat-photo">
+
+<form>
   <input type="text" placeholder="Email" required> </br>
   <input type="text" placeholder="Goal" required> </br>
   <input type="text" placeholder="Prize" required> </br>
 
-  <button type="submit">Submit</button>
+  <button type="submit" onclick="challenge();">Submit</button>
 </form>
 </body>
 
@@ -83,6 +84,10 @@ function deleteEverything(){
   localStorage.setItem("distanceData", 0);
   localStorage.setItem("discoverOldInt", 0);
   alert("Everything deleted");
+
+function challenge(){
+  alert("Challenge Sent!");
+}
 
   {"friends":  
     "Jacobzen"
