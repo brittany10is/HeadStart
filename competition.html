@@ -3,16 +3,14 @@
   <!-- Dropdown menu -->
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="style.css"/>
- <div class="dropdown" style="float:left;">
-  <button href="HamburgerMenu.png">
-    <img class="dropbtn" onclick="myFunction()" src="HamburgerMenu.png" alt="Paris" style="width:50px">
-  </button>
+  <div class="dropdown" style="float:left;">
+  <button onclick="myFunction()" class="dropbtn">^</button>
     <div id="myDropdown" class="dropdown-content">
       <a href="home.html">Home</a>
       <a href="achievements.html">Achievements</a>
       <a href="competition.html">Competitions</a>
-      <a href="statistics.html">Statistics</a>
-      <a onclick="deleteEverything()" href="index.html">Log Out</a>
+  		<a href="statistics.html">Statistics</a>
+  		<a href="#logout">Log Out</a>
     </div>
   </div>
   <script>
@@ -75,13 +73,3 @@ li{
   <button type="submit">Submit</button>
 </form>
 </body>
-
-<script type="text/javascript">
-function deleteEverything(){
-  localStorage.setItem("timeData", 0);
-  localStorage.setItem("discoverOldTimeInt", 0);
-  localStorage.setItem("distanceData", 0);
-  localStorage.setItem("discoverOldInt", 0);
-  alert("Everything deleted");
-}
-</script>
