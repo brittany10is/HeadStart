@@ -106,9 +106,10 @@ window.onclick = function(event) {
 		style="fill:red;stroke:black;stroke-width:2;" />
 	</svg>
 	<center>
-	<p> <span style="margin-top: 0px"> ( </span>
-			<span> out of 3 miles)</span>
-		</p>
+ 
+	<span id="distance-display"> 0 </span> 
+
+		<span> out of 3 miles</span>
 	</center>
 
 	<h3> Today's Time </h3>
@@ -121,7 +122,8 @@ window.onclick = function(event) {
 	 style="fill:blue;stroke:black;stroke-width:2;" />
 	</svg>
 	<center>
-	<p style="margin-top: 0px"> (____ out of 5 hours)</p>
+			<span id="time-display"> 0 </span> 
+			<span> out of 300 minutes</span>
 	</center>
 
 	<br>
@@ -177,7 +179,6 @@ function addDistance(){
 			intDiscover = localStorage.getItem("distanceData");
 			if ((Number(intDiscover) + Number(intDistance) * 100) <= 300)
 			{
-<<<<<<< HEAD
 
 
 				localStorage.setItem("discoverOldInt", intDiscover);
@@ -187,10 +188,6 @@ function addDistance(){
 				var distance = window.localStorage['distanceData'];
 
 				document.getElementById('distance-display').innerText = distance/100
-=======
-				localStorage.setItem("discoverOldInt", intDiscover);
-				localStorage.setItem("distanceData", Number(intDiscover) + Number(intDistance)*100)
->>>>>>> parent of 39b87a8... Fixed the home screen bars
 			}
 		else
 			{
@@ -200,11 +197,6 @@ function addDistance(){
 		else {
 			localStorage.setItem("discoverOldInt", intDistance);
 			localStorage.setItem("distanceData", intDistance);
-
-
-				var distance = window.localStorage['distanceData'];
-
-				document.getElementById('distance-display').innerText = distance
 		}
 	}
 }
@@ -240,19 +232,16 @@ function addTime(){
 			intDiscoverTime = localStorage.getItem("timeData");
 			if ((Number(intDiscoverTime) + Number(intTime)) <= 300)
 			{
-<<<<<<< HEAD
 
 
 
 			document.getElementById("time-display").innerHTML= String((Number(intDiscoverTime) + Number(intTime)));
 
-=======
->>>>>>> parent of 39b87a8... Fixed the home screen bars
 			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
 			localStorage.setItem("timeData", Number(intDiscoverTime) + Number(intTime));
 
 
-
+				
 			}
 			else
 				{
