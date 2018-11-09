@@ -41,4 +41,26 @@
 
 <body>
 	<p> <br><br><br><br>Statistics Page </p>
+
+<div id="time-div"></div>
+<div id="distance-div"></div>
+
+
+<script type="text/javascript">
+  
+
+
+var time = window.localStorage['timeData'];
+var distance = window.localStorage['distanceData'];
+var oldTime = window.localStorage['discoverOldTimeInt'];
+var oldInt = window.localStorage['discoverOldInt'];
+
+document.getElementById('time-div').innerText = time
+document.getElementById('distance-div').innerText = distance
+document.getElementById('oldTime-div').innerText = oldTime
+document.getElementById('oldInt-div').innerText = oldInt
+
+
+</script>
+
 </body>
