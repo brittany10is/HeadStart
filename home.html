@@ -179,13 +179,15 @@ function addDistance(){
 			intDiscover = localStorage.getItem("distanceData");
 			if ((Number(intDiscover) + Number(intDistance) * 100) <= 300)
 			{
-				document.getElementById("distance-display").innerHTML= String((Number(intDiscover) + Number(intDistance)));
 
 
 				localStorage.setItem("discoverOldInt", intDiscover);
 				localStorage.setItem("distanceData", Number(intDiscover) + Number(intDistance)*100)
 
 
+				var distance = window.localStorage['distanceData'];
+
+				document.getElementById('distance-display').innerText = distance/100
 			}
 		else
 			{
@@ -230,10 +232,16 @@ function addTime(){
 			intDiscoverTime = localStorage.getItem("timeData");
 			if ((Number(intDiscoverTime) + Number(intTime)) <= 300)
 			{
-	document.getElementById("time-display").innerHTML= String((Number(intDiscoverTime) + Number(intTime)));
+
+
+
+			document.getElementById("time-display").innerHTML= String((Number(intDiscoverTime) + Number(intTime)));
 
 			localStorage.setItem("discoverOldTimeInt", intDiscoverTime);
 			localStorage.setItem("timeData", Number(intDiscoverTime) + Number(intTime));
+
+
+				
 			}
 			else
 				{
