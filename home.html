@@ -170,14 +170,15 @@ function addDistance(){
 	// takes integer and adds to pre-existing number if not zero
 	var distanceData = document.getElementById("distance").value;
 	intDistance = Number(distanceData);
+
 	if (intDistance != 0) {
 		if (localStorage.getItem("distanceData") != null )
 		{
 			intDiscover = localStorage.getItem("distanceData");
-			if ((Number(intDiscover) + Number(intDistance)) <= 300)
+			if ((Number(intDiscover) + Number(intDistance) * 100) <= 300)
 			{
 				localStorage.setItem("discoverOldInt", intDiscover);
-				localStorage.setItem("distanceData", Number(intDiscover) + Number(intDistance));
+				localStorage.setItem("distanceData", Number(intDiscover) + Number(intDistance)*100)
 			}
 		else
 			{
@@ -190,16 +191,17 @@ function addDistance(){
 		}
 	}
 }
+
 function deleteDistance(){
 	// takes integer and adds to pre-existing number if not zero
 	var distanceData = document.getElementById("distance").value;
 	intDistance = Number(distanceData);
 	if (intDistance != 0) {
 		intDiscover = localStorage.getItem("distanceData");
-		if ((Number(intDiscover) - Number(intDistance)) >= 0)
+		if ((Number(intDiscover) - Number(intDistance)*100) >= 0)
 		{
 			localStorage.setItem("discoverOldInt", intDiscover);
-			localStorage.setItem("distanceData", Number(intDiscover) - Number(intDistance));
+			localStorage.setItem("distanceData", Number(intDiscover) - Number(intDistance)*100);
 		}
 		else {
 			alert("You can't run negative distance silly!")
