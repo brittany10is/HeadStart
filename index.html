@@ -27,7 +27,7 @@
 
     <br>
     <button style="margin-top: 5px; width:30%; border-style:solid;"
-                  onclick="location.href='home.html'; setName(); checkInputs()" type="button">Submit</button>
+                  onclick="location.href='home.html'; setName(); checkInputs(); newStart()" type="button">Submit</button>
 
 <style>
 a {
@@ -79,6 +79,13 @@ function checkInputs(){
     alert("Please input password");
     window.location = 'index.html';
   }
+}
+
+function newStart(){
+  localStorage.setItem("timeData", 0);
+	localStorage.setItem("discoverOldTimeInt", 0);
+	localStorage.setItem("distanceData", 0);
+	localStorage.setItem("discoverOldInt", 0);
 }
 </script>
 </body>
