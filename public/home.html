@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="content">
+        <h2>Run Statistics</h2>
+        <span>Total Miles:</span>
+        <span id="totalMiles">0</span>
+        </br>
+        <span>Total Time:</span>
+        <span id="totalTime">0</span>
+        </br>
+    </div>
+
+    <div class="content">
+        <h2>Run Tracker</h2>
+        <div id="map"></div>
+        <button>Start Run</button>
+        <button>Stop Run</button>
+    </div>
+
+    <div class="content">
+        <h2>Add a run</h2>
+        <form id="add-run-form">
+            <input type="text" name="name" placeholder="Distance (In miles)">
+            <input type="text" name="city" placeholder="Time (In minutes)">
+            <button>Add Run</button>
+        </form>
+        <ul id="cafe-list"></ul>
+    </div>
+
+    <div class="content">
+        <h2>Achievements</h2>
+        <table style="width:100%">
+            <tr>
+                <th align="left">Achievement</th>
+                <th align="left">Unlocked?</th>
+            </tr>
+            <tr>
+                <td>Run 3 miles</td>
+                <td id="threeMiles"></td>
+            </tr>
+            <tr>
+                <td>Run 5 miles</td>
+                <td id="fiveMiles"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        <h2>Challenge a friend</h2>
+        <form id="challenge-form">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="distance" placeholder="Distance (In miles)">
+            <input type="text" name="city" placeholder="Time (In minutes)">
+            <input type="text" name="reward" placeholder="Reward">
+            <button>Send Challenge</button>
+        </form>
+    </div>
+
+    <div class="content">
+        <h2>Active Challenges</h2>
+        <table style="width:100%">
+                <tr>
+                    <th align="left"></th>
+                    <th align="left">Goal Time</th>
+                    <th align="left">Goal Distance</th>
+                    <th align="left">Goal Prize</th>
+                </tr>
+                <tr>
+                    <td>Jack</td>
+                    <td>30 minutes</td>
+                    <td>3 miles</td>
+                    <td>Boba</td>
+                </tr>
+                <tr>
+                    <td><i>Friend's current status</i></td>
+                    <td>15 minutes</td>
+                    <td>1.5 miles</td>
+                    <td id="win"></td>
+                </tr>
+            </table>
+
+            <table style="width:100%">
+                    <tr>
+                        <th align="left"></th>
+                        <th align="left">Goal Time</th>
+                        <th align="left">Goal Distance</th>
+                        <th align="left">Goal Prize</th>
+                    </tr>
+                    <tr>
+                        <td>Zen</td>
+                        <td>60 minutes</td>
+                        <td>6 miles</td>
+                        <td>Pizza</td>
+                    </tr>
+                    <tr>
+                        <td><i>Friend's current status</i></td>
+                        <td>60 minutes</td>
+                        <td>6 miles</td>
+                        <td><b>They won</b></td>
+                    </tr>
+                </table>
+    </div>
+
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDzTXkKSV00p8ZGuuGM4IBqY4ovK_T74bQ",
+            authDomain: "head-start-1b436.firebaseapp.com",
+            databaseURL: "https://head-start-1b436.firebaseio.com",
+            projectId: "head-start-1b436",
+            storageBucket: "head-start-1b436.appspot.com",
+            messagingSenderId: "196160571499"
+
+        };
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true }); 
+    </script>
+
+    <script>
+
+        x = navigator.geolocation;
+
+        x.getCurrentPosition(success, failure);
+
+        function success(position) {
+            var myLat = position.coords.latitude;
+            var myLong = position.coords.longitude;
+            //alert(myLat);
+            var coords = new google.maps.LatLng(myLat, myLong);
+            var mapOptions = {
+                zoom: 11,
+                center: coords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var marker = new google.maps.Marker({ map: map, position: coords });
+        }
+        function failure() { }
+    </script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMGUrphpRzSf7QGz1BI8YliCpQwGIvhJM&callback=initMap"
+        type="text/javascript"></script>
+
+
+    <style type="text/css">
+        #map {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        x = navigator.geolocation;
+        x.getCurrentPosition(success, failure);
+        function success(position) {
+            var myLat = position.coords.latitude;
+            var myLong = position.coords.longitude;
+
+            var coords = new google.maps.LatLng(myLat, myLong);
+            var mapOptions = {
+                zoom: 11,
+                center: coords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var marker = new google.maps.Marker({ map: map, position: coords });
+        }
+
+        function failure() { }
+    </script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
