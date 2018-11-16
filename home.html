@@ -290,8 +290,12 @@ function deleteEverything(){
 	localStorage.setItem("discoverOldInt", 0);
 	alert("All information was deleted");
 }
-/////////////////////////////////////////////////////Set Name////////////////////////////////////////////////
+/////////////////////////////////////////////////////Set Variables////////////////////////////////////////////////
 document.getElementById("myName").innerHTML = localStorage.name;
+document.getElementById('distance-display').innerText = localStorage.getItem("distanceData");
+document.getElementById('time-display').innerText = localStorage.getItem("timeData");
+document.getElementById("distanceRect").style.width = localStorage.getItem("distanceData");
+document.getElementById("timeRect").style.width = localStorage.getItem("timeData");
 
 
 </script>
