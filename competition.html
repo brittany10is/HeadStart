@@ -35,6 +35,7 @@
     }
   }
 
+
   </script>
   <!-- Dropdown menu end-->
 <head/>
@@ -68,13 +69,22 @@ li{
 <br><br>
 <table style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
   <tr>
-  <li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p> <p style= "margin-left: 70px; ">Amy 5 miles <br>  Prize: Boba </br></p> </li> </br>
+<!-- CHALLENGE BOX 1 -->
+  <li onclick="location.href='specificCompetition.html'; setChallengeNum1()"> <p style="float: left">
+    <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p> <p style= "margin-left: 70px; "><span id="challenger1"> Amy </span>
+          5 miles <br>  Prize: Boba </br></p> </li> </br>
   </tr>
   <tr>
-  <li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;">Brittany  20 miles <br> Prize: Soda</br></p></li> </br>
+<!-- CHALLENGE BOX 2 -->
+  <li onclick="location.href='specificCompetition.html'; setChallengeNum2()"> <p style="float: left">
+    <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;"><span id="challenger2"> Brittany </span>
+          20 miles <br> Prize: Soda</br></p></li> </br>
   </tr>
   <tr>
-<li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;">Kristen  15 miles <br> Prize: Candy Bar</br></p></li> </br>
+<!-- CHALLENGE BOX 3 -->
+<li onclick="location.href='specificCompetition.html'; setChallengeNum3()"> <p style="float: left">
+  <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;"><span id="challenger3">Kristen </span>
+          15 miles <br> Prize: Candy Bar</br></p></li> </br>
   </tr>
 </table>
 
@@ -90,10 +100,22 @@ li{
 </form>
 </body>
 
-<script type="text/javascript">
-
+<script>
 function challenge(){
   alert("Challenge Sent!");
+}
+var challengeNum = 0;
+function setChallengeNum1(){
+  localStorage.setItem("challengeNum", 1);
+}
+function setChallengeNum2(){
+  localStorage.setItem("challengeNum", 2);
+}
+function setChallengeNum3(){
+  localStorage.setItem("challengeNum", 3);
+}
+function setChallengeNum4(){
+  localStorage.setItem("challengeNum", 4);
 }
 
 </script>

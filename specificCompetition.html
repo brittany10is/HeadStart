@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <br>
+  <button onclick="location.href='competition.html'">
+    Back
+  </button>
+  <br>
+  <br>
+<center>
+
+	<font size="6"><font color="red"><span id="myName"> Name </span></font>
+  	<span> vs.</span>
+    <font color="blue"><span id="challenger">____</span></font>
+  </font>
+
+<!--          RECTANGLE DISTANCE DISPLAYS           -->
+<br><br><br><br>
+<svg width="400" height="60">
+  <rect x="30" y="0" width="300" height="50"
+  style="fill:white;stroke:black;stroke-width:2" />
+    <!-- inner rectangle1 -->
+  <rect id="distanceRect" x="30" y="0" width="0" height="50"
+  style="fill:red;stroke:black;stroke-width:2;" />
+</svg>
+<!-- Challenger Rect -->
+<svg width="400" height="60">
+  <rect x="30" y="0" width="300" height="50"
+  style="fill:white;stroke:black;stroke-width:2" />
+    <!-- inner rectangle1 -->
+  <rect id="distanceRect" x="30" y="0" width="100" height="50"
+  style="fill:blue;stroke:black;stroke-width:2;" />
+</svg>
+
+
+
+<center>
+
+    <br><br><br><br>
+    <button style="margin-top: 5px; margin-top: 5px; width:30%; border-style:solid;"
+                  onclick="location.href='competition.html'" type="button">Finished</button>
+</center>
+
+
+<script>
+/////////////////////////////////////////// functions ////////////////////////////////////////////
+function setName(){
+  var name = document.getElementById("firstName").value;
+  localStorage.setItem("name", name);
+}
+
+/////////////////////////////////////////////////////Set Variables////////////////////////////////////////////////
+document.getElementById("myName").innerHTML = localStorage.name;
+
+
+if (localStorage.getItem("challengeNum") == 1){
+  var challenger1 = "Amy";
+  document.getElementById("challenger").innerHTML = challenger1;
+}
+if (localStorage.getItem("challengeNum") == 2){
+  var challenger2 = "Brittany";
+  document.getElementById("challenger").innerHTML = challenger2;
+  alert(challengeNum);
+}
+if (localStorage.getItem("challengeNum") == 3){
+  var challenger3 = "Kristen";
+  document.getElementById("challenger").innerHTML = challenger3;
+}
+
+//document.getElementById('distance-display').innerText = localStorage.getItem("distanceData");
+//document.getElementById('time-display').innerText = localStorage.getItem("timeData");
+document.getElementById("distanceRect").style.width = localStorage.getItem("distanceData");
+//document.getElementById("timeRect").style.width = localStorage.getItem("timeData");
+
+</script>
+
+
+</body>
+</html>
