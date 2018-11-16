@@ -96,9 +96,11 @@ function updateAchievements(){
     })
 }
 
-function updateAchievements(){
+function updateChallenge(){
     TotalMiles = 0;
     TotalTime = 0;
+
+
 
     db.collection('cafes').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
@@ -129,7 +131,9 @@ db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
         }
 
     });
+
     updateStats();
     updateAchievements();
+    updateChallenge();    
 
 });
