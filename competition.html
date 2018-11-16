@@ -42,9 +42,10 @@
 <style>
 
 li{
-        display:inline-block;
         border:1px solid #000;
-        padding:20px;
+        padding:10px;
+        list-style-type: none;
+
 }
 
   .image {
@@ -52,21 +53,32 @@ li{
     border-width: 1px;
     border-style: solid;
     border-radius: 50%;
-    width: 30px;
+    width: 40px;
   }
-
+  p.a {
+      word-spacing: 20px;
+  }
 </style>
 
-<h2>Competition</h2>
+	<div style="float:left; margin-left: 40px;" >
+	<p><font size="6"> Competitions </font></p>
+  </div>
+<br><br><br>
+<br><br>
+<table style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+  <tr>
+  <li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p> <p style= "margin-left: 70px; ">Amy 5 miles <br>  Prize: Boba </br></p> </li> </br>
+  </tr>
+  <tr>
+  <li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;">Brittany  20 miles <br> Prize: Soda</br></p></li> </br>
+  </tr>
+  <tr>
+<li> <p style="float: left"> <img class="image" src="https://bit.ly/fcc-relaxing-cat"></p><p style= "margin-left: 70px;">Kristen  15 miles <br> Prize: Candy Bar</br></p></li> </br>
+  </tr>
+</table>
 
-<ul>
-  <li> <img class="image" src="https://bit.ly/fcc-relaxing-cat"> Jacobzen - 5 miles - Boba</li> </br>
-  <li> <img class="image" src="https://bit.ly/fcc-relaxing-cat"> Brittany - 20 miles - Soda</li> </br>
-  <li><img class="image" src="https://bit.ly/fcc-relaxing-cat"> Kristen - 15 miles - Candy Bar</li> </br>
-</ul>
-
-<p >Challenge a friend</p>
-
+<!---------------------------- CHALLENGING FRIENDS ------------------------------>
+<p ><center>Challenge a Friend!</center></p>
 
 <form>
   <input type="text" placeholder="Email" required> </br>
@@ -78,35 +90,9 @@ li{
 </body>
 
 <script type="text/javascript">
-function deleteEverything(){
-  localStorage.setItem("timeData", 0);
-  localStorage.setItem("discoverOldTimeInt", 0);
-  localStorage.setItem("distanceData", 0);
-  localStorage.setItem("discoverOldInt", 0);
-  alert("Everything deleted");
 
 function challenge(){
   alert("Challenge Sent!");
 }
 
-  {"friends":  
-    "Jacobzen"
-    { "Prize" : "Boba"
-      "Profile Pic" : "https://bit.ly/fcc-relaxing-cat"
-      "Distance" : 5
-    }
-    "Brittany"
-    { "Prize" : "Soda"
-      "Profile Pic" : "https://bit.ly/fcc-relaxing-cat"
-      "Distance" : 20
-    }
-    "Kristen"
-    { "Prize" : "Candy"
-      "Profile Pic" : "https://bit.ly/fcc-relaxing-cat"
-      "Distance" : 15
-    }
-  }
-    
-
-}
 </script>
