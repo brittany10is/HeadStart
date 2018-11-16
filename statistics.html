@@ -1,5 +1,9 @@
+<!doctype html>
+
+<html>
+
 <head>
-  <title>HeadStart Achievements</title>
+  <title>HeadStart Statistics</title>
   <!-- Dropdown menu -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css"/>
@@ -26,7 +30,6 @@
   // Close the dropdown if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
@@ -37,7 +40,6 @@
       }
     }
   }
-
   </script>
   <!-- Dropdown menu end-->
 <head/>
@@ -45,29 +47,30 @@
 
 
 <body>
-  <p> <br><br><br><br>Statistics Page </p>
+  <center>
+  <div style="float:left; margin-left: 30px;" >
+<p><font size="6"> Statistics </font></p>
 
 
-<h1>Total Time in minutes </h1>
+<h2>Total Time (minutes) </h2>
 <div id="time-div"></div> <br>
-<h1>Total Distance in miles</h1>
-<div id="distance-div"></div>
+<h2>Total Distance (miles)</h2>
+<div id="distance-div"></div> </br>
+<h2>Total Competition Attempts:3 </h2>
+
+</center>
 
 
 <script type="text/javascript">
-  
-
 
 var time = window.localStorage['timeData'];
 var distance = window.localStorage['distanceData'];
 var oldTime = window.localStorage['discoverOldTimeInt'];
 var oldInt = window.localStorage['discoverOldInt'];
-
 document.getElementById('time-div').innerText = time
 document.getElementById('distance-div').innerText = distance/100
 document.getElementById('oldTime-div').innerText = oldTime
 document.getElementById('oldInt-div').innerText = oldInt
-
 function deleteEverything(){
   localStorage.setItem("timeData", 0);
   localStorage.setItem("discoverOldTimeInt", 0);
@@ -75,9 +78,10 @@ function deleteEverything(){
   localStorage.setItem("discoverOldInt", 0);
   alert("Everything deleted");
 }
-
 </script>
 
 
 
 </body>
+
+</html>
