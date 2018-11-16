@@ -1,4 +1,8 @@
+<!doctype html>
+
+<html>
 <head>
+  <meta charset="utf-8">
   <title>HeadStart Achievements</title>
   <!-- Dropdown menu -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,39 +37,86 @@
         }
       }
     }
-  }
-
-function deleteEverything(){
-  localStorage.setItem("timeData", 0);
-  localStorage.setItem("discoverOldTimeInt", 0);
-  localStorage.setItem("distanceData", 0);
-  localStorage.setItem("discoverOldInt", 0);
-  alert("Everything deleted");
 }
   </script>
   <!-- Dropdown menu end-->
-<head/>
-
-
-
+</head>
 
 
 <body>
+  <center>
   <div style="float:left; margin-left: 30px;" >
   <p><font size="6"> Achievements </font></p>
 
+<!--/////////////////////////////////////////////////// Lvl 1 /////////////////////////////////////////////-->
+  <h2 id="AchievementTitle"> Lvl 1: Tortoise </h2>
+  <center> <img id="AchievementImage" src="icons8-turtle-100.png" alt="Tortoise" style="border-style:solid; border-color:gray; border-width: 1px; margin-top: 20px; font-size: 16px"> </center>
+  <h4> Checkpoints: </h4>
 
-  <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-  <tr>
-    <th class="tg-0lax"></th>
-  </tr>
-</table>
+  <ul style="border-style:solid; border-color:MidnightBlue; border-width: 1px; margin-top: 20px; font-size: 16px">
+    <input type="checkbox"> <i id="distance"> Distance (miles) - 3 </i> </br>
+    </br>
+  </ul>
 
+  <ul style="border-style:solid; border-color:MidnightBlue; border-width: 1px; margin-top: 20px; font-size: 16px">
+    <input type="checkbox"> <i id="time"> Time (minutes) - 30 </i> </br>
+    </br>
+  </ul>
+
+  <ul style="border-style:solid; border-color:MidnightBlue; border-width: 1px; margin-top: 20px; font-size: 16px">
+    <input type="checkbox"> <i id="friends"> Friends Made - 1 </i> </br>
+    </br>
+  </ul>
+
+  <ul style="border-style:solid; border-color:MidnightBlue; border-width: 1px; margin-top: 20px; font-size: 16px">
+    <input type="checkbox"> <i id="challenges"> Challenges Won - 1 </i> </br>
+    </br>
+  </ul>
+
+  <button id="button" type="button" onclick="changeLevel()"
+    style="width:60%; height:35px; border-style:solid;
+  	border-color:black; border-width:1.3px; margin-top: 20px; font-size: 20px">
+    Level-Up!
+  </button>
+
+  </center>
 
 </body>
+
+<!--/////////////////////////////////////////////////// Functions /////////////////////////////////////////////-->
+<script>
+  /*function that changes the title, images, and all four checkpoints*/
+  var x = 1; //initializes counter
+  function changeLevel() {
+    if (x == 1) { //if the counter is at 1
+      document.getElementById("AchievementTitle").innerHTML = 'Lvl 2: Hare';
+      document.getElementById("AchievementImage").src = "icons8-rabbit-100.png";
+      document.getElementById('distance').innerHTML = 'Distance (miles) - 10';
+      document.getElementById('time').innerHTML = 'Time (minutes) - 100';
+      document.getElementById('friends').innerHTML = 'Friends Made - 3';
+      document.getElementById('challenges').innerHTML = 'Challenges Won - 5';
+      x++; //increments the counter to 2
+    } else if (x == 2) { //if this is the 2nd click
+      document.getElementById("AchievementTitle").innerHTML = 'Lvl 3: Dog';
+      document.getElementById("AchievementImage").src = "icons8-dog-100.png";
+      document.getElementById('distance').innerHTML = 'Distance (miles) - 20';
+      document.getElementById('time').innerHTML = 'Time (minutes) - 200';
+      document.getElementById('friends').innerHTML = 'Friends Made - 5';
+      document.getElementById('challenges').innerHTML = 'Challenges Won - 10';
+      x++; //increments counter to 3
+    } else if (x == 3) { //if the counter is 3
+      document.getElementById("AchievementTitle").innerHTML = 'Lvl 4: Cheetah';
+      document.getElementById("AchievementImage").src = "icons8-leopard-100.png";
+      document.getElementById('distance').innerHTML = 'Distance (miles) - 30';
+      document.getElementById('time').innerHTML = 'Time (minutes) - 300';
+      document.getElementById('friends').innerHTML = 'Friends Made - 10';
+      document.getElementById('challenges').innerHTML = 'Challenges Won - 20';
+      document.getElementById('button').innerHTML = 'All Done!';
+      ;
+    }
+  }
+
+
+</script>
+
+</html>
