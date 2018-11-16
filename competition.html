@@ -88,13 +88,16 @@ li{
   </tr>
 </table>
 
+    <p id="invisible" style="color:red; visibility: hidden"> Challenge Pending </p>
 <!---------------------------- CHALLENGING FRIENDS ------------------------------>
-<p ><center>Challenge a Friend!</center></p>
+<p ><center>Challenge Another Friend!</center></p>
 
 <form>
-  <input type="text" placeholder="Email" required> </br>
-  <input type="text" placeholder="Goal" required> </br>
-  <input type="text" placeholder="Prize" required> </br>
+  <center>
+  <input id="email" type="text" placeholder="Email" required> </br>
+  <input id="friend" type="text" placeholder="Friend's Name" required> </br>
+  <input id="goal" type="text" placeholder="Goal (miles)" required> </br>
+  <input id="prize" type="text" placeholder="Prize" required> </br>
 
   <button type="submit" onclick="challenge();">Submit</button>
 </form>
@@ -103,6 +106,7 @@ li{
 <script>
 function challenge(){
   alert("Challenge Sent!");
+  document.getElementById("invisible").style.visibility = "visible";
 }
 var challengeNum = 0;
 function setChallengeNum1(){
